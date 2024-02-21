@@ -67,6 +67,11 @@ const getCurrentDate = () => {
     return number;
 }
 
+const getCurrentMonth = () => {
+    let number = new Date().getMonth();
+    return number;
+}
+
 console.log('--> done');
 
 module.exports = {
@@ -75,4 +80,5 @@ module.exports = {
     getRandomNumber,
     getCurrentTime,
     getCurrentDate,
+    getCurrentMonth,
 }
