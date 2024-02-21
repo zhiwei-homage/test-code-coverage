@@ -62,6 +62,11 @@ const getCurrentTime = () => {
     return number;
 }
 
+const getCurrentDate = () => {
+    let number = new Date().getDate();
+    return number;
+}
+
 console.log('--> done');
 
 module.exports = {
@@ -69,4 +74,5 @@ module.exports = {
     getNumber,
     getRandomNumber,
     getCurrentTime,
+    getCurrentDate,
 }
