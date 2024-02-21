@@ -1,0 +1,37 @@
+name: Calculate code coverage
+
+on: 
+  pull_request:
+    types: 
+      - opened
+    branches:
+      - testing
+      - features/**
+      - production-fixes/**
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          check-latest: true
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests and collect coverage
+        continue-on-error: true # To avoid failed test case terminate whole flow
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: npm run coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
