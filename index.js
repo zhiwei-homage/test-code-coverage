@@ -34,8 +34,27 @@ const getPrintNumber = (number) => {
     return numberString;
 }
 
+const getNumber = (numberString) => {
+    let number = NaN;
+    switch (numberString) {
+        case 'One':
+            number = 1;
+            break;
+        case 'Two':
+            number = 2;
+            break;
+        case 'Three':
+            number = 3;
+            break;
+    }
+    console.log(`Number ${number} should be taken as ${number}`);
+
+    return number;
+}
+
 console.log('--> done');
 
 module.exports = {
-    getPrintNumber
+    getPrintNumber,
+    getNumber,
 }
