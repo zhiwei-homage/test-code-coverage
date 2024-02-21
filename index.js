@@ -52,9 +52,15 @@ const getNumber = (numberString) => {
     return number;
 }
 
+const getRandomNumber = () => {
+    let number = Math.random();
+    return number;
+}
+
 console.log('--> done');
 
 module.exports = {
     getPrintNumber,
     getNumber,
+    getRandomNumber,
 }
