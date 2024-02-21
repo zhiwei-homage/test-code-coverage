@@ -72,6 +72,11 @@ const getCurrentMonth = () => {
     return number;
 }
 
+const getCurrentYear = () => {
+    let number = new Date().getFullYear();
+    return number;
+}
+
 console.log('--> done');
 
 module.exports = {
@@ -81,4 +86,5 @@ module.exports = {
     getCurrentTime,
     getCurrentDate,
     getCurrentMonth,
+    getCurrentYear,
 }
